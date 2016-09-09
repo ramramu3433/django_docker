@@ -1,0 +1,16 @@
+<html>
+<head>
+  total records
+</head>
+<body>
+<br>
+<table>
+{% for item in  queryset %}
+ <tr> {{item.name}}   </tr>
+  <tr> {{item.phone}} </tr>
+ </br>
+{% endfor%}
+</table>
+</body>
+</html>
+
