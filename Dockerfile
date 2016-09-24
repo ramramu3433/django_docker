@@ -7,7 +7,7 @@ RUN apt-get update
 RUN apt-get install -y python && apt-get  install -y  python-pip && apt-get install -y apache2 && apt-get install -y  libapache2-mod-wsgi
 
 #copy the contents from project repository to virtual directory
-COPY blog /var/www/blog/
+COPY / /var/www/blog/
 WORKDIR /var/www/blog/
 
 RUN pip install -r requirements.txt
