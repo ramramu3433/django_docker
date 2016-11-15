@@ -9,6 +9,9 @@ class example(models.Model):
       phone=models.IntegerField()
       def __str__(self):
        return self.name
+     class Meta:
+       managed = False
+       db_table = example
 
 
 
