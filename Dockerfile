@@ -11,6 +11,15 @@ COPY / /var/www/blog/
 WORKDIR /var/www/blog/
 
 RUN pip install -r requirements.txt
+#changes for mysql;
+ENV MYSQL_NAME <<database_name>>
+ENV MYSQL_USER <<user_name>>
+ENV MYSQL_PORT  <<port>>
+ENV MYSQL_HOST <<mysql_host_ip>>
+ENV MYSQL_PASS <<password>>
+
+RUN python manage.py inspectdb > models.py
+RUN python manage.py syncdb
 RUN python manage.py makemigrations
 RUN python manage.py migrate
 
