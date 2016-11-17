@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from example.models import example
+from example.models import Example
 from django.conf import  settings 
 import calendar
 
@@ -21,14 +21,14 @@ def form(request):
 def thank(request):
     message = request.GET['name']
     phonen   = request.GET['phone']
-    b= example(name=message,phone=phonen)
+    b= Example(name=message,phone=phonen)
     b.save()
     return render(request,'hello.html',{'name':message})
 
 def table(request):
-    i=example.objects.all() 
+    i=Example.objects.all() 
     return render(request,'table.html',{'queryset':i})
 
 def delete(request):
-    t=example.objects.all().delete()
+    t=Example.objects.all().delete()
     return HttpResponse(request,"All records are deleted") 
