@@ -18,3 +18,5 @@ Alias /static /var/www/static
 chown -R $APACHE_RUN_USER:$APACHE_RUN_GROUP  /var/www/*
 
 chmod 644 /var/www/*
+
+echo $1
