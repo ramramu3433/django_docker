@@ -9,7 +9,7 @@ import calendar
 def index(request):
     t=[]
     for i in range(1,12):
-        t.append(calendar.HTMLCalendar().formatmonth(2016,i))
+        t.append(calendar.HTMLCalendar().formatmonth(2017,i))
     return HttpResponse(t)
     
 def janakiraman(request): 
