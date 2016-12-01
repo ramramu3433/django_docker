@@ -17,7 +17,7 @@ Alias /static /var/www/static
 
 chown -R $APACHE_RUN_USER:$APACHE_RUN_GROUP  /var/www/*
 chown -R $APACHE_RUN_USER:$APACHE_RUN_GROUP  /var/*
-chmod -R 755 *.sqlite3
+#chmod -R 755 *.sqlite3
 chmod  -R 755 /var/www/*
 
 
