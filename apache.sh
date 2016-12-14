@@ -16,5 +16,6 @@ Alias /static /var/www/static
 #this is for give write permission to user for localdb
 
 chown -R $APACHE_RUN_USER:$APACHE_RUN_GROUP  /var/www/*
-
-chmod 644 /var/www/*
+chown -R $APACHE_RUN_USER:$APACHE_RUN_GROUP  /var/*
+#chmod -R 755 *.sqlite3
+chmod  -R 755 /var/www/*
