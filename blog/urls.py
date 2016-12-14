@@ -21,7 +21,7 @@ from example import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^index',views.index),
-    url(r'^',views.form),
+    url(r'^$',views.form),
     url(r'thank/$',views.thank),
     url(r'^records/$',views.table),
     url(r'^delete/$',views.delete),
