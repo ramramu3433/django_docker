@@ -7,13 +7,15 @@ pipeline{
                  steps
                  {
                  checkout scm
-                 
-             }
+                 }
              }
              
          stage('install')
          {
-         steps{
+         steps
+             {
          sh 'pip install -r requirements.txt'
+             }
+         }
     }
-}}
+}
