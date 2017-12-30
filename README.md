@@ -15,4 +15,12 @@ agent <node label>
  }
  }
  }
- }
+ } 
+ 
+ Docekrfile format
+ FROM image
+ ADD files
+ CMD | RUN execute
+ RUN mkdir test
+ CMD ["python","app.py"]
+ ENTRYPOINT sh to run when entering
