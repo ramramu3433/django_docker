@@ -24,3 +24,5 @@ agent <node label>
  RUN mkdir test
  CMD ["python","app.py"]
  ENTRYPOINT sh to run when entering
+ testing
+ tg
