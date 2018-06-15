@@ -26,10 +26,10 @@ pipeline {
             steps
             {
                 
-         sh 'python manage.py inspectdb > models.py'
-         sh 'python manage.py syncdb'
-         sh 'python manage.py makemigrations'
-         sh 'python manage.py migrate'
+         sh 'sudo python manage.py inspectdb > models.py'
+         sh 'sudo python manage.py syncdb'
+         sh 'sudo python manage.py makemigrations'
+         sh 'sudo python manage.py migrate'
             }
         }
         stage('test')
