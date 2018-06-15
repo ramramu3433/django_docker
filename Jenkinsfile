@@ -43,5 +43,12 @@ pipeline {
          
              }
          }
+       stage('build-docker-image')
+        {
+            steps
+            {
+                docker.build('$JOB_NAME:$BUILD_NUMBER')
+            }
+        }
     }
 }
