@@ -56,7 +56,15 @@ pipeline {
       stage('ansible-deploy')
         {
             steps
-            {   ansiblePlaybook disableHostKeyChecking: true, extras: 'image_name=$JOB_NAME image_tag=$BUILD_NUMBER', installation: 'ansible', playbook: 'launch.yaml'
+            {   ansiblePlaybook('launch.yaml') {
+
+         ansibleName('ansible')
+               become(true)
+             becomeUser("root")
+            extraVars {
+            extraVar("image_name","$JOB_NAME")
+            extraVar("image_tag","$BUILD_NUMBER")
+            }}
 
                
     }
