@@ -15,7 +15,7 @@ pipeline {
          steps
              {
          
-         sh 'apt install -y libmysqlclient-dev'        
+         sh 'apt install -y libmysqlclient-dev --force-yes'        
          sh 'pip install -r requirements.txt'
          echo 'ALL modules are installable'
          
