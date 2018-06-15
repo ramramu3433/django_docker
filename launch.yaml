@@ -1,0 +1,12 @@
+---
+ - hosts: localhost
+   tasks:
+    - name: "Launch containers"
+      docker_container:
+        name: "{{ image_name }}"
+        image: "{{ image_name }}"
+        state: started
+        ports:
+         - "90:80"
+        detach: yes
+~
