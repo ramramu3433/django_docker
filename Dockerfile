@@ -27,6 +27,6 @@ ENV APACHE_LOG_DIR /var/log/apache2
 RUN apache2 -t -D DUMP_MODULES
 
 #run apache2 at foreground
-RUN service apache2 restart 
+#RUN service apache2 restart 
 EXPOSE 80
-#RUN /usr/sbin/apache2ctl -D FOREGROUND
+RUN /usr/sbin/apache2ctl -D FOREGROUND
