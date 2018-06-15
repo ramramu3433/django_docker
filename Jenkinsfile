@@ -56,7 +56,8 @@ pipeline {
       stage('ansible-deploy')
         {
             steps
-            {   ansiblePlaybook credentialsId: 'e5db9693-3f69-4d44-90bc-5c4f66033cc8', extras: 'image_name=$JOB_NAME , image_tag=$BUILD_NUMBER', forks: 5, playbook: 'launch.yaml'
+            {   ansiblePlaybook disableHostKeyChecking: true, extras: 'image_name=$JOB_NAME image_tag=$BUILD_NUMBER', installation: 'ansible', playbook: 'launch.yaml'
+
                
     }
         }
