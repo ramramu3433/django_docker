@@ -26,6 +26,7 @@ pipeline {
             steps
             {
          sh 'ip=`ifconfig eth0 | grep "inet addr:" | cut -d ":" -f2 | awk "{print $1}"`'
+         sh 'echo $ip'
          sh 'sed -i "s/<<ip>>/$ip/g" blog/settings.py'
          sh 'sudo python manage.py inspectdb > models.py'
          sh 'sudo python manage.py syncdb --noinput'
