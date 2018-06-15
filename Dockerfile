@@ -29,4 +29,4 @@ RUN apache2 -t -D DUMP_MODULES
 #run apache2 at foreground
 #RUN service apache2 restart 
 EXPOSE 80
-RUN /usr/sbin/apache2ctl -D FOREGROUND
+ENTRYPOINT ["/usr/sbin/apache2ctl", "-D","FOREGROUND"]
