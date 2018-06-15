@@ -52,5 +52,10 @@ pipeline {
               
             }
         }
+      stage('ansible-deploy')
+        {
+            steps
+            {
+                sh 'ansible-playbook launch.yaml --extra-vars "image_name=$JOB_NAME,image_tag=$BUILD_NUMBER"'
     }
 }
