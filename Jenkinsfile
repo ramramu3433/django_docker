@@ -14,8 +14,10 @@ pipeline {
          {
          steps
              {
-                 
+         
+         sh 'apt install libmysqlclient-devtr'        
          sh 'pip install -r requirements.txt'
+         
              }
          }
     }
