@@ -21,11 +21,22 @@ pipeline {
          
              }
          }
-        
+        stage('testdb-creation')
+        {
+            steps
+            {
+                
+         sh 'python manage.py inspectdb > models.py'
+         sh 'python manage.py syncdb'
+         sh 'python manage.py makemigrations'
+         sh 'python manage.py migrate'
+            }
+        }
         stage('test')
          {
          steps
              {
+         
          
          sh 'python manage.py test'
          
