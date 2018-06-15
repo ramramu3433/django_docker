@@ -15,8 +15,19 @@ pipeline {
          steps
              {
          
-         sh 'apt install libmysqlclient-dev'        
+         sh 'apt install -y libmysqlclient-dev'        
          sh 'pip install -r requirements.txt'
+         echo 'ALL modules are installable'
+         
+             }
+         }
+        
+        stage('test')
+         {
+         steps
+             {
+         
+         sh 'python manage.py test'
          
              }
          }
