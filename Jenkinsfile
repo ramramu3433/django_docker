@@ -47,7 +47,8 @@ pipeline {
         {
             steps
             {
-                docker.build('$JOB_NAME:$BUILD_NUMBER')
+               sh 'docker build -t $JOB_NAME:$BUILD_NUMBER .'
+              
             }
         }
     }
