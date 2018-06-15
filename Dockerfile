@@ -4,7 +4,7 @@ ENV DEBIAN-FRONTEND non-interacive
 #RUN add-apt-repository  ppa:fkrull/deadsnakes
 
 RUN apt-get update 
-RUN apt-get install -y python && apt-get  install -y  python-pip && apt-get install -y apache2 && apt-get install -y  libapache2-mod-wsgi
+RUN apt-get install -y python && apt-get  install -y  python-pip && apt-get install -y apache2 && apt-get install -y  libapache2-mod-wsgi &&  apt install -y libmysqlclient-dev --force-yes
 
 #copy the contents from project repository to virtual directory
 COPY / /var/www/blog/
@@ -13,13 +13,7 @@ WORKDIR /var/www/blog/
 RUN pip install -r requirements.txt
 #changes for mysql;
 
-RUN python manage.py inspectdb > models.py
-RUN python manage.py syncdb
-RUN python manage.py makemigrations
-RUN python manage.py migrate
 
-#Testing
-RUN python manage.py test
 #apache config
 ADD apache.sh /home
 RUN sh  /home/apache.sh
