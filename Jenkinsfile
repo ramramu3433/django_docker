@@ -57,7 +57,7 @@ pipeline {
         {
             steps
             {   ansiblePlaybook credentialsId: 'e5db9693-3f69-4d44-90bc-5c4f66033cc8', extras: 'image_name=$JOB_NAME , image_tag=$BUILD_NUMBER', forks: 5, playbook: 'launch.yaml'
-                #sh 'ansible-playbook launch.yaml --extra-vars "image_name=$JOB_NAME" --extra-vars "image_tag=$BUILD_NUMBER"'
+               
     }
         }
 }
