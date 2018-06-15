@@ -57,7 +57,7 @@ pipeline {
         {
             steps
             {  
-                ansiblePlaybook become: true, credentialsId: 'e5db9693-3f69-4d44-90bc-5c4f66033cc8', extras: '--extra-vars { "image_name=$JOB_NAME" , "image_tag=$BUILD_NUMBER"}', installation: 'ansible', playbook: 'launch.yaml'
+                ansiblePlaybook extras: '--extra-vars "image_name=$JOB_NAME" , --extra-vars "image_tag=$BUILD_NUMBER"', installation: 'ansible', playbook: 'launch.yaml'
 
 
                
