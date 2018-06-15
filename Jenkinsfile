@@ -27,9 +27,11 @@ pipeline {
             {
                 
          sh 'sudo python manage.py inspectdb > models.py'
-         sh 'sudo python manage.py syncdb'
+         sh 'sudo python manage.py syncdb --no-input'
          sh 'sudo python manage.py makemigrations'
          sh 'sudo python manage.py migrate'
+         sh 'echo "from django.contrib.auth.models import User; User.objects.create_superuser('myadmin', 'myemail@example.com', 'hunter2')" | python manage.py shell
+C'       
             }
         }
         stage('test')
