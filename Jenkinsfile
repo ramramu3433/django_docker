@@ -56,15 +56,8 @@ pipeline {
       stage('ansible-deploy')
         {
             steps
-            {   ansiblePlaybook('launch.yaml') {
+            {  ansiblePlaybook  extras: 'image_name=$JOB_NAME , image_tag=$BUILD_NUMBER', forks: 5, playbook: 'launch.yaml'
 
-         ansibleName('ansible')
-               become(true)
-             becomeUser("root")
-            extraVars {
-            extraVar("image_name","$JOB_NAME")
-            extraVar("image_tag","$BUILD_NUMBER")
-            }}
 
                
     }
