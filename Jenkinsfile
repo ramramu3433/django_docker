@@ -15,8 +15,8 @@ pipeline {
          steps
              {
          
-         sh 'apt install -y libmysqlclient-dev --force-yes'        
-         sh 'pip install -r requirements.txt'
+         sh 'sudo apt install -y libmysqlclient-dev --force-yes'        
+         sh 'sudo pip install -r requirements.txt'
          echo 'ALL modules are installable'
          
              }
@@ -27,7 +27,7 @@ pipeline {
             {
          sh 'ip=`ifconfig eth0 | grep "inet addr:" | cut -d ":" -f2 | cut -d " " -f1`'
          
-         sh 'sed -i "s@<<ip>>@$ip@g" blog/settings.py'
+         sh 'sudo sed -i "s@<<ip>>@$ip@g" blog/settings.py'
          sh 'sudo python manage.py inspectdb > models.py'
          sh 'sudo python manage.py syncdb --noinput'
          sh 'sudo python manage.py makemigrations'
@@ -41,7 +41,7 @@ pipeline {
              {
          
          
-         sh 'python manage.py test'
+         sh 'sudo python manage.py test'
          
              }
          }
@@ -49,7 +49,7 @@ pipeline {
         {
             steps
             {
-               sh 'docker build -t pythondjango:$BUILD_NUMBER .'
+               sh 'sudo docker build -t pythondjango:$BUILD_NUMBER .'
               
             }
         }
@@ -57,7 +57,7 @@ pipeline {
         {
             steps
             {  
-                ansiblePlaybook extras: '--extra-vars "image_name=$JOB_NAME"  --extra-vars "image_tag=$BUILD_NUMBER"', installation: 'ansible', playbook: 'launch.yaml'
+                ansiblePlaybook extras: '--extra-vars "image_name=pythondjango"  --extra-vars "image_tag=$BUILD_NUMBER"', installation: 'ansible', playbook: 'launch.yaml'
 
 
                
